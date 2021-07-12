@@ -1,0 +1,48 @@
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+sudo apt-get update
+
+sudo apt install docker-ce
+
+docker --version
+
+sudo usermod -aG docker ${USER}
+
+sudo docker pull ros:melodic-ros-core
+
+sudo docker images
+
+sudo docker run -it ros:melodic-ros-core
+
+rospack list
+
+sudo docker start -a -i silly_volhard
+
+apt-get update
+
+apt-get install ros-melodic-actionlib-tutorials
+
+sudo docker commit 7c5d1e1e5096 ros:melodic-ros-core
+
+mkdir -p catkin_ws/src
+
+cd ~/catkin_ws/src
+
+catkin_init_workspace
+
+cd ~/catkin_ws/
+
+catkin_make
+
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+
+source ~/.bashrc
+
+echo $ROS_PACKAGE_PATH
+
