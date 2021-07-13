@@ -1,0 +1,40 @@
+sudo apt-get install ros-melodic-ros-control
+
+sudo apt-get install ros-melodic-ros-controllers
+
+sudo apt-get install ros-melodic-Gazebo-ros-control
+
+initros1
+mkdir -p ~/chapter3_ws/src
+catkin_init_workspace
+cd ~/chapter3_ws/src
+catkin_create_pkg robot_description catkin
+cd ~/chapter3_ws/
+catkin_make
+cd ~/chapter3_ws/src/robot_description/
+
+
+mkdir config launch meshes urdf
+
+
+cd ~/chapter3_ws/src/robot_description/urdf/
+gedit robot_base.urdf.xacro
+
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robot_base">
+</robot>
+
+<link name="base_link">
+<visual>
+<origin
+xyz="0 0 0"
+rpy="1.5707963267949 0 3.14" />
+<geometry>
+<mesh filename="package://robot_description/meshes/robot_base.stl"/>
+</geometry>
+<material name="">
+<color rgba="0.79216 0.81961 0.93333 1" />
+</material>
+</visual>
+</link>
+
